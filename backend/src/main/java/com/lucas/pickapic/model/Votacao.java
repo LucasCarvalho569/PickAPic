@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Votacao {
 	@Id
@@ -19,10 +21,12 @@ public class Votacao {
 	
 	private String descricao;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id", insertable=false, updatable=false)
 	private Usuario usuario;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "votacao", cascade = CascadeType.ALL)
 	private List<Foto> fotos;
 

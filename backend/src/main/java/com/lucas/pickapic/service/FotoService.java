@@ -10,4 +10,5 @@ public class FotoService {
 
 	@Autowired
 	FotoRepository fotoRepository;
+
 }

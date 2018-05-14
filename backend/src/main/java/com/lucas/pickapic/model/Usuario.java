@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Usuario {
 	@Id
@@ -19,6 +21,7 @@ public class Usuario {
 	
 	private String sobrenome;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private List<Votacao> votacao;
 

@@ -1,5 +1,7 @@
 package com.lucas.pickapic.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,16 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 public class Foto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private Byte[] arquivo;
+	private Blob arquivo;
 	
 	private Integer votos;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id", insertable=false, updatable=false)
 	private Votacao votacao;
@@ -29,11 +35,11 @@ public class Foto {
 		this.id = id;
 	}
 
-	public Byte[] getArquivo() {
+	public Blob getArquivo() {
 		return arquivo;
 	}
 
-	public void setArquivo(Byte[] arquivo) {
+	public void setArquivo(Blob arquivo) {
 		this.arquivo = arquivo;
 	}
 

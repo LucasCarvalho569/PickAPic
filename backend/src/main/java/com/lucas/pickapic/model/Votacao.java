@@ -3,6 +3,7 @@ package com.lucas.pickapic.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,22 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Votacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_votacao")
 	private Integer id;
 	
 	private String descricao;
 	
-	@JsonIgnore
+	@JsonManagedReference
 	@ManyToOne
-	@JoinColumn(name = "id", insertable=false, updatable=false)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	@JsonIgnore
+	@JsonManagedReference
 	@OneToMany(mappedBy = "votacao", cascade = CascadeType.ALL)
 	private List<Foto> fotos;
 

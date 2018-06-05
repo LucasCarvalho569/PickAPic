@@ -1,7 +1,6 @@
 package com.lucas.pickapic.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,15 @@ public class VotacaoService {
 	@Autowired
 	VotacaoRepository votacaoRepository;
 
-	public Optional<List<Votacao>> getVotacoes(Integer idUsuario) {
+	public List<Votacao> getVotacoes(Integer idUsuario) {
 		return votacaoRepository.getVotacoes(idUsuario);
+	}
+
+	public Votacao setVotacao(Votacao votacao) {
+		return votacaoRepository.save(votacao);
+	}
+
+	public void deleteVotacao(Votacao votacao) {
+		votacaoRepository.delete(votacao);
 	}
 }

@@ -22,7 +22,11 @@ public class VotacaoService {
 		return votacaoRepository.save(votacao);
 	}
 
-	public void deleteVotacao(Votacao votacao) {
-		votacaoRepository.delete(votacao);
+	public void deleteVotacao(Integer id) {
+		votacaoRepository.deleteById(id);
+	}
+
+	public List<Votacao> getMinhasVotacoes(Integer idUsuario) {
+		return votacaoRepository.getMinhasVotacoes(idUsuario);
 	}
 }

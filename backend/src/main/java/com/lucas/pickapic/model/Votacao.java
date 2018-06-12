@@ -1,8 +1,5 @@
 package com.lucas.pickapic.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Votacao {
@@ -23,15 +17,10 @@ public class Votacao {
 	
 	private String descricao;
 	
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	@JsonManagedReference
-	@OneToMany(mappedBy = "votacao", cascade = CascadeType.ALL)
-	private List<Foto> fotos;
-
 	public Integer getId() {
 		return id;
 	}
@@ -55,14 +44,4 @@ public class Votacao {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	public List<Foto> getFotos() {
-		return fotos;
-	}
-
-	public void setFotos(List<Foto> fotos) {
-		this.fotos = fotos;
-	}
-	
-	
 }

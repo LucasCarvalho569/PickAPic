@@ -21,18 +21,23 @@ public class VotacaoController {
 	@Autowired
 	private VotacaoService votacaoService;
 	
-	@GetMapping("{idUsuario}")
-	public List<Votacao> getVotacoes(@PathVariable Integer idUsuario) {
+	@GetMapping("minhas-votacoes/{idUsuario}")
+	public List<Votacao> getMinhasVotacoes(@PathVariable("idUsuario") Integer idUsuario) {
+		return votacaoService.getMinhasVotacoes(idUsuario);
+	}
+	
+	@GetMapping("todas-votacoes/{idUsuario}")
+	public List<Votacao> getVotacoes(@PathVariable("idUsuario") Integer idUsuario) {
 		return votacaoService.getVotacoes(idUsuario);
 	}
 	
-	@PostMapping()
+	@PostMapping
 	public Votacao setVotacao(@RequestBody Votacao votacao) {
 		return votacaoService.setVotacao(votacao);
 	}
 	
-	@DeleteMapping()
-	public void deleteVotacao(@RequestBody Votacao votacao) {
-		votacaoService.deleteVotacao(votacao);
+	@DeleteMapping("{id}")
+	public void deleteVotacao(@PathVariable("id") Integer id) {
+		votacaoService.deleteVotacao(id);
 	}
 }

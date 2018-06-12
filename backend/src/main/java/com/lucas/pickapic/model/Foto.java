@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
 public class Foto {
 	@Id
@@ -21,7 +19,6 @@ public class Foto {
 	
 	private Integer votos;
 	
-	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "votacao_id")
 	private Votacao votacao;
@@ -57,5 +54,4 @@ public class Foto {
 	public void setVotacao(Votacao votacao) {
 		this.votacao = votacao;
 	}
-	
 }

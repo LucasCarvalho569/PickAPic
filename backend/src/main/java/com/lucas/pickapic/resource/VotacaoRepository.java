@@ -13,5 +13,7 @@ public interface VotacaoRepository extends CrudRepository<Votacao, Integer> {
 
 	@Query("SELECT v FROM Votacao v WHERE v.usuario.id != ?1")
 	List<Votacao> getVotacoes(Integer idUsuario);
-
+	
+	@Query("SELECT v FROM Votacao v WHERE v.usuario.id = ?1")
+	List<Votacao> getMinhasVotacoes(Integer idUsuario);
 }

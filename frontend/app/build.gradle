@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:[4,5)'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'com.facebook.fresco:fresco:0.14.0'
+    compile 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
 }

@@ -6,19 +6,68 @@
     android:layout_height="match_parent"
     tools:context="com.lucas.pickapic.HomeActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="176dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="275dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="218dp"
-        android:text="@string/welcome"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnMinhasVotacoes"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:text="@string/minhasVotacoes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_margin="0dp" />
+
+    <ImageView
+        android:id="@+id/foto4"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="264dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
+        app:srcCompat="@color/cardview_dark_background" />
+
+    <ImageView
+        android:id="@+id/foto3"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="264dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
+        app:srcCompat="@color/cardview_dark_background" />
+
+    <ImageView
+        android:id="@+id/foto1"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
+        app:srcCompat="@color/cardview_dark_background" />
+
+    <ImageView
+        android:id="@+id/foto2"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
+        app:srcCompat="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/lblTituloVotacao"
+        android:layout_width="298dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="35dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/foto2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes" />
+
 </android.support.constraint.ConstraintLayout>

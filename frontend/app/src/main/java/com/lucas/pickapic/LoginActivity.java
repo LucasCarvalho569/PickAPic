@@ -1,6 +1,5 @@
 package com.lucas.pickapic;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(tokenValido(AccessToken.getCurrentAccessToken())) {
+        if(AccessToken.isCurrentAccessTokenActive()) {
             redirecionarHome();
         }
         super.onCreate(savedInstanceState);
@@ -43,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 setResult(RESULT_OK);
-
                 redirecionarHome();
             }
 
@@ -58,18 +56,6 @@ public class LoginActivity extends AppCompatActivity {
                 // Handle exception
             }
         });
-    }
-
-    private boolean tokenValido(AccessToken token) {
-        if(token.getToken().isEmpty()) {
-            return false;
-        }
-
-        if(token.isExpired()) {
-            return false;
-        }
-
-        return true;
     }
 
     private void redirecionarHome() {

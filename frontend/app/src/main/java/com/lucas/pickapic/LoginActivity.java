@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {

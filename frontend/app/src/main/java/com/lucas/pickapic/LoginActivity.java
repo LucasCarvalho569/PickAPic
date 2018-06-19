@@ -12,12 +12,18 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.lucas.pickapic.model.Usuario;
+import com.lucas.pickapic.service.UsuarioService;
+
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
     public LoginButton loginButton;
     private CallbackManager callbackManager;
     private Intent intent;
+    private UsuarioService usuarioService = new UsuarioService();
+    private Usuario usuario;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -41,6 +47,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 setResult(RESULT_OK);
+                criarUsuario();
+                try {
+                    usuarioService.salvarUsuario(usuario);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 redirecionarHome();
             }
 
@@ -60,5 +74,10 @@ public class LoginActivity extends AppCompatActivity {
     private void redirecionarHome() {
         intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+    }
+
+    private void criarUsuario() {
+        usuario = new Usuario();
+        usuario.setFacebookId(AccessToken.getCurrentAccessToken().getUserId());
     }
 }

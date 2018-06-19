@@ -38,10 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.HomeActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MinhasVotacoesActivity" />
-        <activity android:name=".VotacaoActivity"></activity>
+        <activity android:name=".VotacaoActivity" />
+        <activity android:name=".NovaVotacaoActivity"></activity>
     </application>
 
 </manifest>

@@ -24,6 +24,9 @@ public class UsuarioService {
 	}
 
 	public Usuario setUsuario(Usuario usuario) {
+		if(usuarioRepository.getUsuario(usuario.getFacebookId()) == null) {
+			return null;
+		}
 		return usuarioRepository.save(usuario);
 	}
 }

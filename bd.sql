@@ -21,8 +21,7 @@ DROP TABLE IF EXISTS `pickapic`.`usuario` ;
 
 CREATE TABLE IF NOT EXISTS `pickapic`.`usuario` (
   `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `sobrenome` VARCHAR(45) NULL DEFAULT NULL,
+  `facebookid` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

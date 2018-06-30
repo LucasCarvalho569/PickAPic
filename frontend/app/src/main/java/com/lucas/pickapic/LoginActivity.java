@@ -50,12 +50,14 @@ public class LoginActivity extends AppCompatActivity {
                 criarUsuario();
                 try {
                     usuarioService.salvarUsuario(usuario);
+                    redirecionarHome();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                redirecionarHome();
             }
 
             @Override
@@ -67,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException e) {
                 // Handle exception
+                Toast.makeText(getApplicationContext(), "Ocorreu um erro", Toast.LENGTH_LONG + 2);
             }
         });
     }

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lucas.pickapic.model.Usuario;
 import com.lucas.pickapic.model.Votacao;
+import com.lucas.pickapic.service.UsuarioService;
 import com.lucas.pickapic.service.VotacaoService;
 
 @RestController
@@ -19,11 +21,14 @@ import com.lucas.pickapic.service.VotacaoService;
 public class VotacaoController {
 
 	@Autowired
-	private VotacaoService votacaoService;
+    private VotacaoService votacaoService;
+    
+    @Autowired
+    private UsuarioService usuarioService;
 	
 	@GetMapping("minhas-votacoes/{idUsuario}")
 	public List<Votacao> getMinhasVotacoes(@PathVariable("idUsuario") Integer idUsuario) {
-		return votacaoService.getMinhasVotacoes(idUsuario);
+        return votacaoService.getMinhasVotacoes(idUsuario);
 	}
 	
 	@GetMapping("todas-votacoes/{idUsuario}")
@@ -33,6 +38,8 @@ public class VotacaoController {
 	
 	@PostMapping
 	public Votacao setVotacao(@RequestBody Votacao votacao) {
+        Usuario usuario = usuarioService.getUsuarioByFacebookId(votacao.getUsuario().getFacebookId());
+        votacao.setUsuario(usuario);
 		return votacaoService.setVotacao(votacao);
 	}
 	

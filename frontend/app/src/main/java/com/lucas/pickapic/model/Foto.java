@@ -6,6 +6,14 @@ public class Foto {
     private Integer votos;
     private Votacao votacao;
 
+    public Foto() {}
+
+    public Foto(byte[] arquivo, Votacao votacao) {
+        this.arquivo = arquivo;
+        this.votos = 0;
+        this.votacao = votacao;
+    }
+
     public Integer getId() {
         return id;
     }

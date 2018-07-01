@@ -10,11 +10,11 @@
         android:id="@+id/btnMinhasVotacoes"
         android:layout_width="0dp"
         android:layout_height="72dp"
+        android:onClick="listarVotacoes"
         android:text="@string/minhasVotacoes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="listarVotacoes"
         tools:layout_margin="0dp" />
 
     <ImageView
@@ -42,7 +42,7 @@
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
         app:srcCompat="@color/cardview_dark_background" />
@@ -52,7 +52,7 @@
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
         app:srcCompat="@color/cardview_dark_background" />
@@ -66,9 +66,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="35dp"
         android:textAlignment="center"
+        android:textColor="@color/preto"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/foto2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMinhasVotacoes"
+        app:layout_constraintVertical_bias="0.545" />
 
 </android.support.constraint.ConstraintLayout>

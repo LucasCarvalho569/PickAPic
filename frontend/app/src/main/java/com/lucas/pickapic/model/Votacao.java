@@ -5,6 +5,13 @@ public class Votacao {
     private String descricao;
     private Usuario usuario;
 
+    public Votacao() {};
+
+    public Votacao(String descricao, Usuario us) {
+        this.descricao = descricao;
+        this.usuario = us;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -27,5 +34,10 @@ public class Votacao {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Descrição: " + descricao;
     }
 }

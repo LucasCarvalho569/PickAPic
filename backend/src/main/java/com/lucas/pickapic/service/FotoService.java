@@ -22,5 +22,9 @@ public class FotoService {
 
 	public List<Foto> getFotosDeVotacao(Integer id) {
 		return fotoRepository.getFotosVotacao(id);
-	}
+    }
+    
+    public Foto save(Foto foto) {
+        return this.fotoRepository.save(foto);
+    }
 }

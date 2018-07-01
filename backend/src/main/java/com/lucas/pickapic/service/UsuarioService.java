@@ -17,7 +17,11 @@ public class UsuarioService {
 
 	public List<Usuario> getUsuarios() {
 		return (List<Usuario>) usuarioRepository.findAll();
-	}
+    }
+    
+    public Usuario getUsuarioByFacebookId(String facebookId) {
+        return usuarioRepository.getUsuario(facebookId);
+    }
 
 	public Optional<Usuario> getUsuario(Integer id) {
 		return usuarioRepository.findById(id);

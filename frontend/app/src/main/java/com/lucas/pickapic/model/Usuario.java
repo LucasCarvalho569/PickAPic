@@ -4,6 +4,12 @@ public class Usuario {
     private Integer id;
     private String facebookId;
 
+    public Usuario() {}
+
+    public Usuario(String facebookId) {
+        this.facebookId = facebookId;
+    }
+
     public Integer getId() {
         return id;
     }

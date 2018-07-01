@@ -1,6 +1,7 @@
 package com.lucas.pickapic;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.lucas.pickapic.model.Usuario;
 import com.lucas.pickapic.service.UsuarioService;
 
 import java.util.concurrent.ExecutionException;
+import java.util.prefs.Preferences;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -49,7 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(RESULT_OK);
                 criarUsuario();
                 try {
-                    usuarioService.salvarUsuario(usuario);
+                    usuario = usuarioService.salvarUsuario(usuario);
+
+                    SharedPreferences storage = getSharedPreferences("MY_STORAGE", MODE_PRIVATE);
+                    SharedPreferences.Editor storageEdit = storage.edit();
+                    storageEdit.putLong("idUsuarioLogado", usuario.getId());
+                    storageEdit.commit();
+
                     redirecionarHome();
                 } catch (ExecutionException e) {
                     e.printStackTrace();

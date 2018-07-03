@@ -41,7 +41,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".MinhasVotacoesActivity" />
         <activity android:name=".VotacaoActivity" />
-        <activity android:name=".NovaVotacaoActivity"></activity>
+        <activity android:name=".NovaVotacaoActivity" />
+        <activity android:name=".EstatisticaVotacao"></activity>
     </application>
 
 </manifest>

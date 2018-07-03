@@ -1,6 +1,9 @@
 package com.lucas.pickapic.model;
 
-public class Votacao {
+import java.io.Serializable;
+
+public class Votacao implements Serializable {
+
     private Integer id;
     private String descricao;
     private Usuario usuario;

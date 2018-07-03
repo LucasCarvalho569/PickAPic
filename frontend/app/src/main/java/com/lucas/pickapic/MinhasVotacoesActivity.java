@@ -31,6 +31,11 @@ public class MinhasVotacoesActivity extends AppCompatActivity {
         setupListView();
     }
 
+    public void home(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
     public void setupListView() {
         ListView listViewMinhasVotacoes = (ListView) findViewById(R.id.listView);
 
